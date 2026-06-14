@@ -7,8 +7,8 @@ const sequelize = require('./config/database');
 require('./models'); // load all models + associations
 
 const authRoutes = require('./routes/auth');
-const orderRoutes = require('./routes/orders');
-const restaurantRoutes = require('./routes/restaurants');
+const orderRoutes = require('./routes/order');
+const restaurantRoutes = require('./routes/restaurant');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 const { initWebSocket } = require('./utils/websocket');
 
@@ -30,8 +30,8 @@ app.get('/health', (req, res) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/restaurants', restaurantRoutes);
+app.use('/api/order', orderRoutes);
+app.use('/api/restaurant', restaurantRoutes);
 
 // Error handling
 app.use(notFoundHandler);
